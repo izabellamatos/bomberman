@@ -1,0 +1,51 @@
+= Introdução
+Bomberman clone utilizando programação modular.
+
+
+= Instruções para Montagem de Ambiente de Desenvolvimento
+
+== JDK8 o compilador e máquina virtual
+
+Instale o JDK8: 
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+	
+== Eclipse (Luna) a IDE
+	http://eclipse.org/downloads/packages/eclipse-standard-44/lunar
+
+	
+== Gradle a Ferramenta de Gerencia de Dependências e Build	
+
+Gradle é um sitema de gerencia de dependência. Iremos utiliza-lo para obter a o JUnit 
+inicialmente depois iremos incrementar com outras bibliotecas.
+
+
+=== Gradle Eclipse plugin
+
+O plugin gradle do eclipse facilitar a montarmos o projeto, pois inclui as dependencias configurados no gradle diretamente na interface
+
+No Eclipse vá em  
+> Help>Marketplace 
+
+Digite no campo search:
+ Gradle Integration
+
+Escolha  Gradle Integration for Eclipse (4.4) 3.6.0.RELEASE
+
+Confirme. Ao final da instalação reinicie o Eclipse.
+
+
+== Importanto o projeto no Eclipse
+
+Go to File -> Import -> Gradle -> Gradle Project, navega até a pasta root deste projeto. Selecione [Build Model]
+
+OBS: a importação pode demorar vários minutos na primeira vez que for realiza pois serão baixadas dependências do Gradle.
+
+
+= Referencias 
+== Padrões Utilizados
+* Padrão Arquitetural: Entity Component System
+** Leitura Posterior: http://gamadu.com/artemis/	
+
+* Dedign Patterns: 
+** Singleton: *System
