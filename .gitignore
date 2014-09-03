@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Bomberman project/sound/
 Bomberman project/bin/
 Bomberman\ project/images/
@@ -17,3 +18,17 @@ Bomberman\ project/images/
 # Windows
 Thumbs.ini
 Desktop.ini
+=======
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> branch 'master' of https://github.com/izabellamatos/bomberman.git
