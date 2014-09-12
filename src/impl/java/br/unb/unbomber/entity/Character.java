@@ -8,12 +8,23 @@ public class Character extends Entity {
 	Direction facingDirection = Direction.DOWN;
 	BombDropper bombDropper;
 	
+		
 	public Character(){
 		 bombDropper = new BombDropper(this);
+	}
+	
+	
+	public Character(int charBombRange){
+		 bombDropper = new BombDropper(this);
+		 
+		 bombDropper.setBombRange(charBombRange);
 	}
 	
 	public final void dropBomb(){
 		bombDropper.drop();
 	}
 	
+	public BombDropper getBombDropper() {
+		return bombDropper;
+	}
 }

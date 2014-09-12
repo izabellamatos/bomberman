@@ -2,6 +2,7 @@ package br.unb.unbomber.systems;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.*;
 
 import br.unb.unbomber.entity.Bomb;
 import br.unb.unbomber.entity.BombDropper;
@@ -14,6 +15,8 @@ public class BombSystem implements System {
 	
 	private List<Bomb> bombs = new ArrayList<Bomb>();
 	
+	private int permittedSimultaneousBombs = 0;
+	
 	public static BombSystem getInstance() {
 		return instance;
 	}
@@ -22,6 +25,7 @@ public class BombSystem implements System {
 		instance = new BombSystem();
 		instance.bombDroppers = new ArrayList<BombDropper>();
 		instance.bombs = new ArrayList<Bomb>();
+		
 	}
 	
 
@@ -58,6 +62,11 @@ public class BombSystem implements System {
 	public void dropBomb(BombDropper dropper){
 		//TODO verify if the character has not dropped too much bombs
 		
+		//DÚVIDA:  comparar com o qual variável? Criei um contador permittedSimultaneousBombs 
+		
+		//When a bomb is dropped, adds 1 to permittedSimultaneousBombs; when a bomb explodes, decreases 1 
+		if(permittedSimultaneousBombs < dropper.getPermittedSimultaneousBombs()){
+				
 		//TODO create a bomb
 		
 		Bomb bomb = new Bomb(dropper.getX(), dropper.getY(), dropper.getBombRange(), dropper);
@@ -70,6 +79,9 @@ public class BombSystem implements System {
 		//TODO if it is a romete controlled bomb, 
 		//make the link so the user can remote explod it
 		
+		permittedSimultaneousBombs = permittedSimultaneousBombs + 1;
+				
+		}
 	}
 	
 	/**
@@ -79,5 +91,8 @@ public class BombSystem implements System {
 		return bombs;
 	}
 
+	public int getPermittedSimultaneousBombs() {
+		return permittedSimultaneousBombs;
+	}
 
 }

@@ -41,5 +41,42 @@ public class BombSystemTestCase {
 		assertTrue(bomb.getX() == 3.0d);
 	}
 	
+	@Test
+	public void bombRangeTest() {
+		int bombRange = 8;
+		
+		Character c = new Character(bombRange);
+						
+		BombSystem.getInstance().dropBomb(c.getBombDropper());
+		List<Bomb> bombs = BombSystem.getInstance().getBombs();
+		assertTrue(bombs.get(0).getBombRange() == bombRange);
+		
+	}
+	
+	@Test
+	public void permittedSimultaneousBombsTrue() {
+		int permittedSimultaneousBombs = 6;
+		
+		Character c = new Character();
+		c.getBombDropper().setPermittedSimultaneousBombs(permittedSimultaneousBombs);
+		
+		BombSystem.getInstance().dropBomb(c.getBombDropper());
+		
+		assertTrue(BombSystem.getInstance().getPermittedSimultaneousBombs() < permittedSimultaneousBombs);
+		
+	}
+	
+	@Test
+	public void permittedSimultaneousBombsFalse() {
+		int permittedSimultaneousBombs = 6;
+		
+		Character c = new Character();
+		c.getBombDropper().setPermittedSimultaneousBombs(permittedSimultaneousBombs);
+		
+		BombSystem.getInstance().dropBomb(c.getBombDropper());
+		
+		assertFalse(BombSystem.getInstance().getPermittedSimultaneousBombs() > permittedSimultaneousBombs);
+		
+	}
 
 }
