@@ -22,6 +22,7 @@ public class BombSystemTestCase {
 	public void dropBombTest() {
 		//character should drop bomb
 		Character c = new Character();
+		
 		c.dropBomb();
 		
 		List<Bomb> bombs = BombSystem.getInstance().getBombs();
@@ -34,7 +35,7 @@ public class BombSystemTestCase {
 		Character c = new Character();
 		c.setX(3.0d);
 		c.setY(3.0d);
-		
+		c.getBombDropper().setPermittedSimultaneousBombs(5);
 		c.dropBomb();
 		List<Bomb> bombs = BombSystem.getInstance().getBombs();
 		Bomb bomb = bombs.get(0);
@@ -46,7 +47,8 @@ public class BombSystemTestCase {
 		int bombRange = 8;
 		
 		Character c = new Character(bombRange);
-						
+		c.getBombDropper().setPermittedSimultaneousBombs(3);
+		
 		BombSystem.getInstance().dropBomb(c.getBombDropper());
 		List<Bomb> bombs = BombSystem.getInstance().getBombs();
 		assertTrue(bombs.get(0).getBombRange() == bombRange);

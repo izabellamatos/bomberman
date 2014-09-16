@@ -67,19 +67,19 @@ public class BombSystem implements System {
 		//When a bomb is dropped, adds 1 to permittedSimultaneousBombs; when a bomb explodes, decreases 1 
 		if(permittedSimultaneousBombs < dropper.getPermittedSimultaneousBombs()){
 				
-		//TODO create a bomb
-		
-		Bomb bomb = new Bomb(dropper.getX(), dropper.getY(), dropper.getBombRange(), dropper);
-		bombs.add(bomb);
-		
-		//TODO posit it
-		
-		//TODO set the right power and time
-		
-		//TODO if it is a romete controlled bomb, 
-		//make the link so the user can remote explod it
-		
-		permittedSimultaneousBombs = permittedSimultaneousBombs + 1;
+			//TODO create a bomb
+			
+			Bomb bomb = new Bomb(dropper.getX(), dropper.getY(), dropper.getBombRange(), dropper);
+			bombs.add(bomb);
+			
+			//TODO posit it
+			
+			//TODO set the right power and time
+			
+			//TODO if it is a romete controlled bomb, 
+			//make the link so the user can remote explod it
+			
+			permittedSimultaneousBombs = permittedSimultaneousBombs + 1;
 				
 		}
 	}
