@@ -42,6 +42,7 @@ public class BombSystem implements System {
 		
 		Bomb bomb = new Bomb(0, 0, 0, null);
 		
+		//Dúvida: fazer essa verificação não é desnecessária? Estou fazendo a verificação no método, dropBomb.
 		if(bomb.getType()==Bomb.Type.TIME){
 			
 		}
@@ -51,7 +52,7 @@ public class BombSystem implements System {
 	/**
 	 * Explode remote controlled bombs
 	 */
-	public void explodeRemoteBombs(){
+	public void explodeRemoteBombs(Bomb bomb){
 		//TODO not implemented
 		
 	}
@@ -76,8 +77,21 @@ public class BombSystem implements System {
 			
 			//TODO set the right power and time
 			
-			//TODO if it is a romete controlled bomb, 
+			//TODO if it is a remote controlled bomb, 
 			//make the link so the user can remote explod it
+			
+			
+			switch (bomb.getType()) {
+				case REMOTE:
+					explodeRemoteBombs(bomb);
+					break;
+				case TIME:
+					explodeTimeBombs();
+				break;
+	
+				default:
+					break;
+			}
 			
 			permittedSimultaneousBombs = permittedSimultaneousBombs + 1;
 				

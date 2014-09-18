@@ -22,7 +22,7 @@ public class BombSystemTestCase {
 	public void dropBombTest() {
 		//character should drop bomb
 		Character c = new Character();
-		
+		c.getBombDropper().setPermittedSimultaneousBombs(5);
 		c.dropBomb();
 		
 		List<Bomb> bombs = BombSystem.getInstance().getBombs();
